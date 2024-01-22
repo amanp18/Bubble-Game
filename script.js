@@ -1,6 +1,9 @@
 let timer=60;
 let score=0;
 let rn=0;
+let start_again_btn = document.getElementById('startAgain')
+let reset_btn = document.getElementById('Reset')
+let Startbtn = document.getElementById('startButton')
 
 function scorer() {
     score +=10
@@ -14,7 +17,6 @@ document.querySelector("#clicks").addEventListener("click",function(dets) {
         makebubble(); }
 
 })
-
 
 function newhit() {
     rn= Math.floor(Math.random()*10);
@@ -41,12 +43,36 @@ let timeinterval= setInterval(() => {
     else{
         clearInterval(timeinterval);
         document.querySelector("#clicks").innerHTML=`<h1> GAME OVER <h1/>`
+        show_btn()
     }
 }, 1000);}
 
+function startGame() {
+    timer = 60;
+    Startbtn.style.display = "none";
+    runtimer();
+    makebubble();
+    newhit();
+}
 
+function reset(){
+    Startbtn.style.display = "block";
+    reset_btn.style.display = "none";
+    start_again_btn.style.display = "none";
+}
 
-runtimer();
-makebubble();
-newhit();
+function startAgain(){
+    startGame();
+    timer = 60;
+    reset_btn.style.display = "none";
+    start_again_btn.style.display = "none";
+}
+
+function show_btn() {
+    Startbtn.style.display = "none"
+    reset_btn.style.display = "block";
+    start_again_btn.style.display = "block";
+    
+
+}
 
