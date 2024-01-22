@@ -49,6 +49,8 @@ let timeinterval= setInterval(() => {
 
 function startGame() {
     timer = 60;
+    score = -10;
+    scorer();
     Startbtn.style.display = "none";
     runtimer();
     makebubble();
@@ -64,6 +66,8 @@ function reset(){
 function startAgain(){
     startGame();
     timer = 60;
+    score = -10;
+    scorer();
     reset_btn.style.display = "none";
     start_again_btn.style.display = "none";
 }
